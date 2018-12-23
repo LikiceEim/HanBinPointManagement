@@ -1,0 +1,31 @@
+<template>
+    <LeaderList :td="leaderli"></LeaderList>
+</template>
+
+<script>
+  import LeaderList from "../components/leaderList/leaderList"
+    export default {
+        name: "leaderList",
+      components :{LeaderList},
+      data(){
+        return {
+          leaderli:[]
+        }
+      },
+      created(){
+         this.$axios({
+           url:'../../static/json/leader.json',
+           method:'get'
+         }) .then((res)=>{
+           console.log(res)
+           this.leaderli=res.data;
+         }) .catch((error)=>{
+           console.log(error)
+         })
+      }
+    }
+</script>
+
+<style scoped>
+
+</style>

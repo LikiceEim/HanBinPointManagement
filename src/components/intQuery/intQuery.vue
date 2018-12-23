@@ -1,0 +1,179 @@
+<template>
+  <div>
+    <div class="craeteTop">
+      积分查询
+    </div>
+    <div class="unltlistBot">
+      <!--input 搜索框-->
+      <div class="logHeader">
+        <span>单位分类</span>
+        <Select class="ivSelect" v-model="model1" style="width:200px">
+          <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+        </Select>
+
+        <span>职位级别</span>
+        <Select class="ivSelect" v-model="model1" style="width:200px">
+          <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+        </Select>
+
+        <span>性别</span>
+        <Select class="ivSelect" v-model="model2" style="width:200px">
+          <Option v-for="item in sex" :value="item.value" :key="item.value">{{ item.label }}</Option>
+        </Select>
+        <span>关键字</span>
+        <Input class="unltlistInput" v-model="value1" placeholder="搜索关键字..." style="width:200px;" />
+        <Button class="primary" type="primary" >搜索</Button>
+      </div>
+    </div>
+    <div>
+      <Table border :columns="columns7" :data="data6"></Table>
+    </div>
+    <!--分页器-->
+    <div>
+      <div class="unltlistfyq">
+        <Page :total="100" show-elevator />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+    export default {
+        name: "intQuery",
+      props:['int'],
+      computed:{
+          fathathint(val){
+            console.log(this.int);
+            return this.int
+          }
+      },
+      watch:{
+        fathathint(val){
+          this.data6=val
+        }
+      },
+      data(){
+          return{
+            value1:"",
+            cityList: [
+              {
+                value: 'New York',
+                label: 'New York'
+              },
+              {
+                value: 'London',
+                label: 'London'
+              },
+              {
+                value: 'Sydney',
+                label: 'Sydney'
+              },
+              {
+                value: 'Ottawa',
+                label: 'Ottawa'
+              },
+              {
+                value: 'Paris',
+                label: 'Paris'
+              },
+              {
+                value: 'Canberra',
+                label: 'Canberra'
+              }
+            ],
+            sex:[
+                {
+                value: '男',
+                label: '男'
+              },
+              {
+                value: '女',
+                label: '女'
+              },
+            ],
+            model1: '',
+            model2: '',
+            columns7: [
+              {
+                title: '积分排名',
+                key: 'int'
+              },
+              {
+                title: '姓名',
+                key: 'name'
+              },
+              {
+                title: '性别',
+                key: 'sex'
+              },
+              {
+                title: '出生年月',
+                key: 'yer'
+              },
+              {
+                title: '所在单位',
+                key: 'unit'
+              },
+              {
+                title: '现任职务',
+                key: 'xianr'
+              },
+              {
+                title: '级别',
+                key: 'jibie'
+              },
+              {
+                title: '任职时间',
+                key: 'time'
+              }
+            ],
+            data6: []
+          }
+      },
+
+    }
+</script>
+
+<style scoped>
+  .craeteTop{
+    width:100%;
+    height:65px;
+    font-size: 24px;
+    font-weight: 600;
+    background: #cdd0d4;
+    line-height: 65px;
+    padding-left: 60px;
+    color: #323232;
+  }
+  .logHeader{
+    margin:0 15px;
+    height:70px;
+    line-height: 70px;
+  }
+  .logHeader span{
+    font-size: 14px;
+    color: #515a6e;
+  }
+
+  .unltlistfyq{
+    text-align: right;
+    margin-right:15px;
+    height:100px;
+    line-height: 100px;
+  }
+  .unltlistInput{
+    margin-left:10px;
+  }
+  .ivSelect{
+    margin: 0 45px 0 10px;
+  }
+  .primary{
+    margin-left:30px;
+  }
+</style>
+
+<style>
+  .ivu-table-wrapper{
+    margin:0 15px;
+  }
+</style>

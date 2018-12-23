@@ -1,0 +1,204 @@
+<template>
+  <div class="loginCenter">
+    <div id="login">
+      <div id="login_b">
+        <!--<h2>用户名</h2>-->
+        <form>
+          <input type="text" id="login_ba" placeholder="手机号 / 已认证邮箱"/>
+          <span id="phoneMsg"></span>
+          <!--<span><img id="login_ba_a" src="../assets/image/29.png" /></span>-->
+          <input type="password" id="login_bb" placeholder="登录密码"/>
+          <span id="passwordMsg"></span>
+          <!--<span><img  id="login_bb_a" src="../assets/image/30.png"/></span>-->
+
+          <div id="login_bc">
+            <input type="checkbox" />
+            <span>记住登录名</span>
+            <a id="login_bc_d" href="#">忘记密码？</a>
+          </div>
+          <input type="button" @click="go()" value="登 录" id="login_bd"/>
+        </form>
+        <div id="login_c">
+          <span>没有账号？您可免费注册</span><a href="#">免费注册</a>
+        </div>
+      </div>
+    </div>
+    <!--<div id="login_d">-->
+      <!--<p>Copyright © 2014-2017 Tianduyun.com. All Rights Reserved. 天都 版权所有　天都网络科技有限公司　<a href="#">鲁ICP备16044791号</a></p>-->
+
+    <!--</div>-->
+  </div>
+
+</template>
+
+<script>
+    export default {
+        name: "login",
+      methods:{
+        go(){
+          // debugger
+          this.$router.push("/HomePages")
+        }
+      }
+    }
+</script>
+
+<style scoped>
+  .loginCenter{
+    height:100%
+  }
+  #login {
+    width: 100%;
+    height: 100%;
+    background: url(../assets/image/timg.jpg) no-repeat 0 0;
+    background-size: 100% 100%;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+  }
+
+  #login_b {
+    width: 600px;
+    height: 400px;
+    /*margin:0 auto;*/
+    /*box-sizing: border-box;*/
+  }
+
+  form {
+    position: relative;
+  }
+
+  #login_b h2 {
+    padding: 35px 0;
+    font-weight: 400;
+    font-size: 24px;
+    color: #0080ff;
+    text-align: center;
+  }
+
+  #login_ba {
+    width: 450px;
+    margin: 0 60px;
+    padding-right: 30px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 14px;
+    color: #333;
+    text-indent: 18px;
+    border: 1px solid #ddd;
+  }
+
+  #phoneMsg {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    top: 42px;
+    left: 67px;
+  }
+
+  #login_ba_a {
+    position: absolute;
+    top: 10px;
+    left: 390px;
+  }
+
+  #passwordMsg {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    top: 109px;
+    left: 70px;
+  }
+
+  #login_bb {
+    width: 450px;
+    margin: 0 60px;
+    padding-right: 30px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 14px;
+    color: #333;
+    text-indent: 18px;
+    border: 1px solid #ddd;
+    margin-top: 30px;
+  }
+
+  #login_bc {
+    position: relative;
+    margin-top: 20px;
+    height: 30px;
+    line-height: 30px;
+  }
+  #login_bc input{
+    width: 14px;
+    height: 14px;
+  }
+  input[type="checkbox"] {
+    margin-left: 64px;
+  }
+
+  #login_bc span {
+    line-height: 16px;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+  }
+
+
+  #login_bc_d {
+    float: right;
+    color: #0080ff;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 56px;
+  }
+
+  #login_bd {
+    width: 360px;
+    height: 40px;
+    margin: 30px 118px;
+    line-height: 40px;
+    border-radius: 3px;
+    font-size: 18px;
+    background-color: #0080ff;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  #login_c {
+    width: 360px;
+    margin: 0 auto;
+    padding-top: 16px;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+  }
+
+  #login_c span {
+    width: 360px;
+    margin: 0 auto;
+    padding-top: 25px;
+    font-size: 14px;
+    color: #666;
+  }
+
+  #login_c a {
+    float: right;
+    padding: 5px 10px;
+    color: #0080ff;
+    border: 1px solid #0080ff;
+    background-color: #fff;
+  }
+
+  #login_d p {
+    font-size: 12px;
+    color: #999;
+    line-height: 30px;
+  }
+  #login_d a {
+    color: #333;
+  }
+
+</style>

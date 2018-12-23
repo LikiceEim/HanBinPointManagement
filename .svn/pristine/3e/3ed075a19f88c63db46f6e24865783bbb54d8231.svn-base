@@ -1,0 +1,95 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import HomePages from '@/pages/homePages'
+import CreateUnit from '@/pages/createUnit'
+import UnitList from '@/pages/unitList'
+import Login from '@/pages/login'
+import Mains from '@/pages/mains'
+import LeaderList from '@/pages/leaderList'
+import LeaPerInfor from '@/pages/leaPerInfor'
+import CreateLeader from '@/pages/createLeader'
+import DicManaged from '@/pages/dicManaged'
+import UsersManage from '@/pages/usersManage'
+import LogManage from '@/pages/logManage'
+import Backups from '@/pages/backups'
+import IntQuery from '@/pages/intQuery'
+import IntCreate from '@/pages/intCreate'
+import ChinaCompany from '@/pages/chinaCompany'
+
+Vue.use(Router)
+
+export default new Router({
+  // mode:'history',
+  routes: [
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/',
+      name: 'Login',
+      component: Login
+    }, {
+      path: '/Mains',
+      name: 'Mains',
+      component: Mains,
+      children:[
+        {
+          path: '/HomePages',
+          name: 'HomePages',
+          component: HomePages
+        },{
+          path:'/CreateUnit',
+          name:'CreateUnit',
+          component:CreateUnit,
+        },{
+          path:'/UnitList',
+          name:'UnitList',
+          component:UnitList,
+        },{
+          path:'/LeaderList',
+          name:'LeaderList',
+          component:LeaderList,
+        },{
+          path:'/LeaPerInfor',
+          name:'LeaPerInfor',
+          component:LeaPerInfor,
+        },{
+          path:'/CreateLeader',
+          name:'CreateLeader',
+          component:CreateLeader,
+        },{
+          path:'/DicManaged',
+          name:'DicManaged',
+          component:DicManaged,
+        },{
+          path:'/UsersManage',
+          name:'UsersManage',
+          component:UsersManage,
+        },{
+          path:'/LogManage',
+          name:'LogManage',
+          component:LogManage,
+        },{
+          path:'/Backups',
+          name:'Backups',
+          component:Backups,
+        },{
+          path:'/IntQuery',
+          name:'IntQuery',
+          component:IntQuery,
+        },{
+          path:'/IntCreate',
+          name:'IntCreate',
+          component:IntCreate,
+        },{
+          path:'/ChinaCompany',
+          name:'ChinaCompany',
+          component:ChinaCompany,
+        }
+
+      ]
+     },
+  ]
+})

@@ -1,0 +1,224 @@
+<template>
+  <div class="personal">
+    <div class="centers">
+      <div class="personals">
+        <span> 积分情况</span>
+      </div>
+      <div class="personalList">
+        <!--;input框&ndash;&gt;-->
+        <div class="personalName">
+          <span class="personalspanfour">基础分</span>
+          <div style="text-align:left ">
+            <Input  class="input" />
+            <p>单位编码为单位唯一身份识别ID，不能重复</p>
+          </div>
+        </div>
+
+        <!--<button type="button" class="ivu-btn ivu-btn-ghost">&lt;!&ndash;&ndash;&gt; <i class="ivu-icon ivu-icon-refresh"></i> <span>刷新</span></button>-->
+        <!--下拉框-->
+        <div class="select">
+          <h3>调整分</h3>
+          <Row class="selects" style="display: inline-block">
+            <Col span="12" class="selectone" style="padding-right:10px;width:200px">
+              <Select v-model="model12" filterable multiple>
+                <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+              <span class="selespan">12项工作痕迹负项减分</span>
+            </Col>
+            <Col span="12" class="selectone" style="padding-right:10px;width:200px">
+              <Select v-model="model12" filterable multiple>
+                <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+              <span class="selespan">12项工作痕迹负项减分</span>
+            </Col>
+          </Row>
+        </div>
+
+        <div class="personalName">
+          <span class="personalspantwo">分值</span>
+          <div style="text-align:left ">
+            <Input  class="input"/>
+            <p>正直为加分，负值为减分</p>
+          </div>
+        </div>
+
+        <!--分管工作文本域-->
+        <div class="textareaas">
+          <span>摘要</span>
+          <Input class="textareas"  type="textarea" :rows="4" placeholder="Enter something..." />
+        </div>
+
+        <div class="personalName">
+          <span class="personalspanone">其他分</span>
+          <Input  class="input" />
+        </div>
+        <div class="personalName">
+          <span class="personalspanthree">分值</span>
+          <Input  class="input"/>
+        </div>
+        <!--分管工作文本域-->
+        <div class="textareaas">
+          <span>摘要</span>
+          <Input class="textareas"  type="textarea" :rows="4" placeholder="Enter something..." />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<script>
+    export default {
+        name: "intInfor",
+      data () {
+        return {
+          cityList: [
+            {
+              value: 'New York',
+              label: 'New York'
+            },
+            {
+              value: 'London',
+              label: 'London'
+            },
+            {
+              value: 'Sydney',
+              label: 'Sydney'
+            },
+            {
+              value: 'Ottawa',
+              label: 'Ottawa'
+            },
+            {
+              value: 'Paris',
+              label: 'Paris'
+            },
+            {
+              value: 'Canberra',
+              label: 'Canberra'
+            }
+          ],
+          model11: '',
+          model12: []
+        }
+      },
+      methods:{
+        // 获取数据
+        showIntData() {
+          debugger;
+          
+        }
+      }
+    }
+</script>
+
+<style scoped>
+  .personal{
+    margin:15px auto 30px;
+    text-align: center;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+  }
+  .centers{
+    margin: 0 auto;
+  }
+  .personalList{
+    text-align: center;
+  }
+  .personals{
+    width:100%;
+  }
+  .personals span{
+    width: 90px;
+    font-size: 14px;
+    color: darkgray;
+    display: block;
+    padding-left: 2px;
+    border-left:3px solid #4990e2;
+  }
+  .select{
+   display: -webkit-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin:20px 0;
+  }
+  .select h3{
+   color: black;
+    margin-right: 35px;
+    font-weight: 100;
+    font-size: 16px;
+  }
+  .select .selects .selectone .selespan{
+      font-size: 14px;
+    margin-top: 10px;
+    color: darkgray;
+  }
+  .selectone{
+    margin-right: 38px;
+    text-align: left;
+  }
+  /*input框样式*/
+  .input{
+    width:420px;
+    line-height: 45px;
+  }
+  .personalName{
+    display: -webkit-flex;
+    -webkit-justify-content:flex-start;
+    margin:12px 0;
+  }
+  .personalName p{
+    font-size: 14px;
+    color: darkgray;
+  }
+  .personalName .personalspanone{
+    margin-right:45px;
+    margin-top: 15px;
+    font-size: 16px;
+    color: black;
+  }
+  .personalName .personalspantwo{
+    margin-right:59px;
+    margin-top: 15px;
+    font-size: 16px;
+    color: black;
+  }
+  .personalName .personalspanthree{
+    margin-right:62px;
+    margin-top: 15px;
+    font-size: 16px;
+    color: black;
+  }
+  .personalName .personalspanfour{
+    margin-right:42px;
+    margin-top: 15px;
+    font-size: 16px;
+    color: black;
+  }
+
+
+  /*文本域*/
+  .textareaas{
+    display: -webkit-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 12px 0;
+  }
+  .textareaas span{
+    display: block;
+    margin-right:60px;
+    font-size: 16px;
+    color: black;
+  }
+  .textareas{
+    width: 420px;
+  }
+</style>
+<style>
+  .ivu-col ivu-col-span-12{
+    width:200px;
+  }
+  /*.ivu-select-multiple .ivu-select-input{*/
+    /*height: 44px;*/
+  /*}*/
+</style>

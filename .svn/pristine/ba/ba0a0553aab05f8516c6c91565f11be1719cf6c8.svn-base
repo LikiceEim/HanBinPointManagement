@@ -1,0 +1,237 @@
+<template>
+  <div class="intCreate">
+    <div class="intCre">
+      <div class="craeteTop">
+        积分申请
+      </div>
+      <div class="craeteBot">
+          <div class="select">
+            <h3>调整分</h3>
+            <Row class="selects" style="display: inline-block">
+              <Col span="12" class="selectone" style="padding-right:10px;width:200px">
+                <Select v-model="model12" filterable multiple>
+                  <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                </Select>
+                <span class="selespan">12项工作痕迹负项减分</span>
+              </Col>
+              <Col span="12" class="selectone" style="padding-right:10px;width:200px">
+                <Select v-model="model12" filterable multiple>
+                  <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                </Select>
+                <span class="selespan">12项工作痕迹负项减分</span>
+              </Col>
+            </Row>
+          </div>
+        <!--分值input框-->
+        <div class="inputas" >
+          <span>分值</span>
+          <div style="text-align:left ">
+            <Input  class="inputs"/>
+            <p>正值为加分，负值为减分</p>
+          </div>
+        </div>
+
+        <!--文本域-->
+        <div class="textareaas">
+          <span>摘要</span>
+          <Input class="textareas" v-model="value6" type="textarea" :rows="4" placeholder="Enter something..." />
+        </div>
+
+        <!--input框-->
+        <div class="inputas">
+          <span>其他分</span>
+          <Input size="large" class="inputs"/>
+        </div>
+        <div class="inputas">
+          <span>分值</span>
+          <Input size="large" class="inputs"/>
+        </div>
+        <!--文本域-->
+        <div class="textareaas">
+          <span>摘要</span>
+          <Input class="textareas" v-model="value6" type="textarea" :rows="4" placeholder="Enter something..." />
+        </div>
+        <!--点击按钮-->
+        <div class="butt">
+          <span>上传文件</span>
+          <Button type="success" long>点击上传文件</Button>
+          <h4>支持.doc .xls .jpg .png格式文件</h4>
+        </div>
+        <div>
+          <Button class="submit" type="primary">提交</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<script>
+    export default {
+        name: "intCreate",
+      data () {
+        return {
+          cityList: [
+            {
+              value: 'New York',
+              label: 'New York'
+            },
+            {
+              value: 'London',
+              label: 'London'
+            },
+            {
+              value: 'Sydney',
+              label: 'Sydney'
+            },
+            {
+              value: 'Ottawa',
+              label: 'Ottawa'
+            },
+            {
+              value: 'Paris',
+              label: 'Paris'
+            },
+            {
+              value: 'Canberra',
+              label: 'Canberra'
+            }
+          ],
+          model11: '',
+          model12: []
+        }
+      }
+    }
+</script>
+
+<style scoped>
+  .intCreate{
+    width:100%;
+    /*margin:0 auto;*/
+
+  }
+  .intCre{
+    width:60%;
+    margin:0 auto;
+    border:1px solid #fff;
+    background:#f7f7f9 ;
+    text-align: center;
+    display: -webkit-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .craeteTop{
+    width:100%;
+    height:80px;
+    font-size: 24px;
+    font-weight: 600;
+    background: #f7f7f9;
+    line-height: 80px;
+    color: #323232;
+  }
+  .craeteBot{
+    background: #eff0f6;
+    margin:0 auto;
+    display: -webkit-flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 30px;
+    align-items: center;
+    width: 100%;
+  }
+  .select{
+    display: -webkit-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin:20px 0;
+  }
+  .select h3{
+    color: black;
+    margin-right: 35px;
+    font-weight: 100;
+    font-size: 16px;
+  }
+  .select .selects .selectone .selespan{
+    font-size: 14px;
+    margin-top: 10px;
+    color: darkgray;
+  }
+  .selectone{
+    margin-right: 38px;
+    text-align: left;
+  }
+
+  /*input框样式*/
+  .inputas{
+    margin-top: 30px;
+    display: -webkit-flex;
+
+  }
+  .inputas span{
+    display: block;
+    margin-right:50px;
+    margin-top: 15px;
+  }
+  .inputas p{
+    font-size: 14px;
+    color:darkgray;
+  }
+  .inputs{
+    width: 420px;
+    line-height: 45px;
+  }
+
+  /*文本域*/
+  .textareaas{
+    display: -webkit-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 35px 0;
+  }
+  .textareaas span{
+    display: block;
+    margin-right:60px;
+  }
+  .textareas{
+    width: 420px;
+  }
+  .butt{
+    margin-top:30px;
+  }
+  .butt span{
+    margin-right:20px;
+  }
+  .butt h4{
+    margin-top:20px;
+    color: #bfbfbf;
+    font-size: 14px;
+  }
+  .submit{
+    margin:30px 0;
+  }
+
+</style>
+<style>
+  /*.ivu-col ivu-col-span-12{*/
+
+  /*}*/
+  /*.ivu-select-multiple .ivu-select-input{*/
+    /*height: 52px;*/
+  /*}*/
+  .ivu-radio-wrapper{
+    font-size: 16px;
+  }
+  .ivu-tabs-nav-scroll{
+    display: inline-block;
+  }
+
+  .ivu-btn-success{
+    width: 45%;
+    background-color: #bfbfbf;
+    border-color: #bfbfbf;
+  }
+  .ivu-btn-primary{
+    width: 150px;
+  }
+
+</style>
